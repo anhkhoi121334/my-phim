@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Sidebar Example</title>
+    <link rel="stylesheet" href="src/styles/wordpress-sidebar.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+        
+        .content-area {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Nút hiển thị sidebar trên mobile */
+        .wd-show-sidebar-btn {
+            display: none;
+            margin-bottom: 20px;
+        }
+        
+        .wd-show-sidebar-btn a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: #f7f7f7;
+            border-radius: 4px;
+            color: #333;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        /* Header */
+        .site-header {
+            background-color: #fff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            margin-bottom: 30px;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        /* Danh sách sản phẩm */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .product-wrapper {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .product-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .product-image-link img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Widget sản phẩm được đánh giá cao */
+        .top-rated-products-widget {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .top-rated-products-widget .widget-title {
+            font-size: 22px;
+            font-weight: 700;
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            color: #333;
+        }
+        
+        .top-rated-products-widget .widget-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #83b735;
+        }
+        
+        .product_list_widget {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .product_list_widget li {
+            padding: 15px;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .product_list_widget li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .widget-product-wrap {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .widget-product-img {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .widget-product-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+        
+        .widget-product-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .wd-entities-title {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .product_list_widget {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .wd-entities-title {
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product_list_widget {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-logo">
+                <h1>MucGreenInk</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-area">
+        <h1>Mực In Văn Phòng</h1>
+        
+        <!-- Nút hiển thị sidebar trên mobile -->
+        <div class="wd-show-sidebar-btn">
+            <a href="#" rel="nofollow" id="showSidebarBtn">Show sidebar</a>
+        </div>
+        
+        <!-- Danh sách sản phẩm -->
+        <div class="products">
+            <!-- Sản phẩm 1 -->
+            <div class="product-wrapper">
+                <div class="product-image-link">
+                    <img src="https://mucingreenink.com/wp-content/uploads/2025/05/mucingreenink-Recovered-Recovered-121201-430x430.jpg" alt="Sản phẩm">
+                </div>
+                <div class="product-info" style="padding: 15px;">
+                    <h3>Mực Dye Danik GreenInk 6 Màu Cho Epson Photo</h3>
+                    <p>Mực In Văn Phòng, Dye</p>
+                </div>
+            </div>
+            
+            <!-- Sản phẩm 2 -->
+            <div class="product-wrapper">
+                <div class="product-image-link">
+                    <img src="https://mucingreenink.com/wp-content/uploads/2025/05/lan3-430x430.jpg" alt="Sản phẩm">
+                </div>
+                <div class="product-info" style="padding: 15px;">
+                    <h3>Mực Dye Danik Greenink Epson L800/L805/L1390/L1400/L1430</h3>
+                    <p>Mực In Văn Phòng, Dye</p>
+                </div>
+            </div>
+            
+            <!-- Sản phẩm 3 -->
+            <div class="product-wrapper">
+                <div class="product-image-link">
+                    <img src="https://mucingreenink.com/wp-content/uploads/2025/05/mucin121-430x430.jpg" alt="Sản phẩm">
+                </div>
+                <div class="product-info" style="padding: 15px;">
+                    <h3>Mực Dye GreenInk Super Cho HP DesignJet Khổ A0</h3>
+                    <p>Mực In Văn Phòng, Dye</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Widget Sản phẩm được đánh giá cao (đã di chuyển từ sidebar) -->
+        <div id="woocommerce_top_rated_products-10" class="top-rated-products-widget">
+            <h5 class="widget-title">Sản phẩm được đánh giá cao</h5>
+            <ul class="product_list_widget">
+                <li>
+                    <span class="widget-product-wrap">
+                        <a href="https://mucingreenink.com/dung-dich-xu-ly-dau-phun-dr-clean-solution/" title="Dung dịch xử lý đầu phun Dr. Clean Solution" class="widget-product-img">
+                            <img loading="lazy" width="430" height="430" src="https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-430x430.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Dung dịch xử lý đầu phun Dr. Clean Solution" decoding="async" srcset="https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-430x430.jpg 430w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-768x768.jpg 768w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-100x100.jpg 100w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-700x700.jpg 700w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-150x150.jpg 150w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun.jpg 1080w" sizes="(max-width: 430px) 100vw, 430px">
+                        </a>
+                        <span class="widget-product-info">
+                            <a href="https://mucingreenink.com/dung-dich-xu-ly-dau-phun-dr-clean-solution/" title="Dung dịch xử lý đầu phun Dr. Clean Solution" class="wd-entities-title">
+                                Dung dịch xử lý đầu phun Dr. Clean Solution
+                            </a>
+                            <span class="price"></span>
+                        </span>
+                    </span>
+                </li>
+                <li>
+                    <span class="widget-product-wrap">
+                        <a href="https://mucingreenink.com/chat-phu-vai-cotton-dtg-greenink-pretreatment-solution/" title="Chất Phủ Vải Cotton DTG - GreenInk Pretreatment Solution" class="widget-product-img">
+                            <img loading="lazy" width="430" height="430" src="https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-430x430.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Chất Phủ Vải Cotton DTG - GreenInk Pretreatment Solution" decoding="async" srcset="https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-430x430.jpg 430w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-768x768.jpg 768w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-100x100.jpg 100w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-700x700.jpg 700w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-150x150.jpg 150w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton.jpg 1080w" sizes="(max-width: 430px) 100vw, 430px">
+                        </a>
+                        <span class="widget-product-info">
+                            <a href="https://mucingreenink.com/chat-phu-vai-cotton-dtg-greenink-pretreatment-solution/" title="Chất Phủ Vải Cotton DTG - GreenInk Pretreatment Solution" class="wd-entities-title">
+                                Chất Phủ Vải Cotton DTG - GreenInk Pretreatment Solution
+                            </a>
+                            <span class="price"></span>
+                        </span>
+                    </span>
+                </li>
+                <li>
+                    <span class="widget-product-wrap">
+                        <a href="https://mucingreenink.com/muc-in-epson-l800/" title="Mực tương thích máy in Epson L800" class="widget-product-img">
+                            <img loading="lazy" width="430" height="430" src="https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-430x430.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Mực tương thích máy in Epson L800" decoding="async" srcset="https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-430x430.jpg 430w, https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-768x768.jpg 768w, https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-700x700.jpg 700w, https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-150x150.jpg 150w, https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800.jpg 1080w" sizes="(max-width: 430px) 100vw, 430px">
+                        </a>
+                        <span class="widget-product-info">
+                            <a href="https://mucingreenink.com/muc-in-epson-l800/" title="Mực tương thích máy in Epson L800" class="wd-entities-title">
+                                Mực tương thích máy in Epson L800
+                            </a>
+                            <span class="price"></span>
+                        </span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- WordPress Sidebar -->
+    <aside class="wd-sidebar sidebar-container wd-grid-col sidebar-left wd-side-hidden wd-left wd-scroll" style="--wd-col-lg:3;--wd-col-md:12;--wd-col-sm:12;">
+        <div class="wd-heading">
+            <div class="close-side-widget wd-action-btn wd-style-text wd-cross-icon">
+                <a href="#" rel="nofollow noopener">Close</a>
+            </div>
+        </div>
+        <div class="widget-area wd-scroll-content">
+            <div id="woocommerce_top_rated_products-10" class="wd-widget widget sidebar-widget woocommerce widget_top_rated_products">
+                <h5 class="widget-title">Sản phẩm được đánh giá cao</h5>
+                <ul class="product_list_widget">
+                    <li>
+                        <span class="widget-product-wrap">
+                            <a href="https://mucingreenink.com/dung-dich-xu-ly-dau-phun-dr-clean-solution/" title="Dung dịch xử lý đầu phun Dr. Clean Solution" class="widget-product-img">
+                                <img loading="lazy" width="430" height="430" src="https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-430x430.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Dung dịch xử lý đầu phun Dr. Clean Solution" decoding="async" srcset="https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-430x430.jpg 430w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-768x768.jpg 768w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-100x100.jpg 100w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-700x700.jpg 700w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun-150x150.jpg 150w, https://mucingreenink.com/wp-content/uploads/2025/05/dau-phun.jpg 1080w" sizes="(max-width: 430px) 100vw, 430px">
+                            </a>
+                            <span class="widget-product-info">
+                                <a href="https://mucingreenink.com/dung-dich-xu-ly-dau-phun-dr-clean-solution/" title="Dung dịch xử lý đầu phun Dr. Clean Solution" class="wd-entities-title">
+                                    Dung dịch xử lý đầu phun Dr. Clean Solution
+                                </a>
+                                <span class="price"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="widget-product-wrap">
+                            <a href="https://mucingreenink.com/chat-phu-vai-cotton-dtg-greenink-pretreatment-solution/" title="Chất Phủ Vải Cotton DTG - GreenInk Pretreatment Solution" class="widget-product-img">
+                                <img loading="lazy" width="430" height="430" src="https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-430x430.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Chất Phủ Vải Cotton DTG - GreenInk Pretreatment Solution" decoding="async" srcset="https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-430x430.jpg 430w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-768x768.jpg 768w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-100x100.jpg 100w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-700x700.jpg 700w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton-150x150.jpg 150w, https://mucingreenink.com/wp-content/uploads/2025/05/Cotton.jpg 1080w" sizes="(max-width: 430px) 100vw, 430px">
+                            </a>
+                            <span class="widget-product-info">
+                                <a href="https://mucingreenink.com/chat-phu-vai-cotton-dtg-greenink-pretreatment-solution/" title="Chất Phủ Vải Cotton DTG - GreenInk Pretreatment Solution" class="wd-entities-title">
+                                    Chất Phủ Vải Cotton DTG - GreenInk Pretreatment Solution
+                                </a>
+                                <span class="price"></span>
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="widget-product-wrap">
+                            <a href="https://mucingreenink.com/muc-in-epson-l800/" title="Mực tương thích máy in Epson L800" class="widget-product-img">
+                                <img loading="lazy" width="430" height="430" src="https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-430x430.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Mực tương thích máy in Epson L800" decoding="async" srcset="https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-430x430.jpg 430w, https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-768x768.jpg 768w, https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-700x700.jpg 700w, https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800-150x150.jpg 150w, https://mucingreenink.com/wp-content/uploads/2024/09/muc-in-epson-l800.jpg 1080w" sizes="(max-width: 430px) 100vw, 430px">
+                            </a>
+                            <span class="widget-product-info">
+                                <a href="https://mucingreenink.com/muc-in-epson-l800/" title="Mực tương thích máy in Epson L800" class="wd-entities-title">
+                                    Mực tương thích máy in Epson L800
+                                </a>
+                                <span class="price"></span>
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- JavaScript for Sidebar Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get sidebar and toggle buttons
+            const sidebar = document.querySelector('.wd-sidebar');
+            const showSidebarBtn = document.getElementById('showSidebarBtn');
+            const closeSidebarBtn = document.querySelector('.close-side-widget a');
+            
+            // Show sidebar function
+            function showSidebar() {
+                sidebar.classList.add('wd-sidebar-visible');
+                sidebar.classList.remove('wd-side-hidden');
+            }
+            
+            // Hide sidebar function
+            function hideSidebar() {
+                sidebar.classList.remove('wd-sidebar-visible');
+                sidebar.classList.add('wd-side-hidden');
+            }
+            
+            // Event listeners
+            if (showSidebarBtn) {
+                showSidebarBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showSidebar();
+                });
+            }
+            
+            if (closeSidebarBtn) {
+                closeSidebarBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    hideSidebar();
+                });
+            }
+            
+            // Initially hide sidebar on mobile
+            if (window.innerWidth <= 768) {
+                hideSidebar();
+            }
+        });
+    </script>
+</body>
+</html> 

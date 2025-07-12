@@ -1,0 +1,100 @@
+[
+  {
+    "name": "Electronics",
+    "description": "Các sản phẩm điện tử và công nghệ",
+    "image": "https://example.com/images/electronics.jpg",
+    "sortOrder": 1,
+    "metaTitle": "Electronics - Best Deals on Tech Products",
+    "metaDescription": "Find the best deals on electronics, gadgets, and tech products",
+    "keywords": ["electronics", "gadgets", "tech", "technology"]
+  },
+  {
+    "name": "Computers",
+    "description": "Máy tính và thiết bị máy tính",
+    "image": "https://example.com/images/computers.jpg",
+    "parentId": "ELECTRONICS_CATEGORY_ID",
+    "sortOrder": 1,
+    "metaTitle": "Computers - Laptops, Desktops & Accessories",
+    "metaDescription": "High-quality computers, laptops, desktops and accessories",
+    "keywords": ["computers", "laptops", "desktops", "pc"]
+  },
+  {
+    "name": "Gaming Laptop",
+    "description": "Laptop gaming hiệu năng cao",
+    "image": "https://example.com/images/gaming-laptop.jpg",
+    "parentId": "COMPUTERS_CATEGORY_ID",
+    "sortOrder": 1,
+    "metaTitle": "Gaming Laptops - High Performance Gaming",
+    "metaDescription": "Best gaming laptops with high performance graphics and processors",
+    "keywords": ["gaming", "laptop", "gaming laptop", "rtx", "gaming pc"]
+  },
+  {
+    "name": "Business Laptop",
+    "description": "Laptop dành cho công việc và văn phòng",
+    "image": "https://example.com/images/business-laptop.jpg",
+    "parentId": "COMPUTERS_CATEGORY_ID",
+    "sortOrder": 2,
+    "metaTitle": "Business Laptops - Professional Workstations",
+    "metaDescription": "Professional business laptops for productivity and work",
+    "keywords": ["business", "laptop", "workstation", "professional"]
+  },
+  {
+    "name": "Mobile Phones",
+    "description": "Điện thoại di động và smartphone",
+    "image": "https://example.com/images/mobile-phones.jpg",
+    "parentId": "ELECTRONICS_CATEGORY_ID",
+    "sortOrder": 2,
+    "metaTitle": "Mobile Phones - Smartphones & Accessories",
+    "metaDescription": "Latest smartphones and mobile accessories",
+    "keywords": ["mobile", "phone", "smartphone", "iphone", "android"]
+  },
+  {
+    "name": "Accessories",
+    "description": "Phụ kiện điện tử và máy tính",
+    "image": "https://example.com/images/accessories.jpg",
+    "parentId": "ELECTRONICS_CATEGORY_ID",
+    "sortOrder": 3,
+    "metaTitle": "Accessories - Tech & Computer Accessories",
+    "metaDescription": "Quality accessories for your tech devices",
+    "keywords": ["accessories", "tech accessories", "computer accessories"]
+  },
+  {
+    "name": "Gaming",
+    "description": "Sản phẩm gaming và giải trí",
+    "image": "https://example.com/images/gaming.jpg",
+    "sortOrder": 2,
+    "metaTitle": "Gaming - Gaming Gear & Accessories",
+    "metaDescription": "Professional gaming gear and accessories",
+    "keywords": ["gaming", "gaming gear", "esports", "gaming accessories"]
+  },
+  {
+    "name": "Gaming Headsets",
+    "description": "Tai nghe gaming chất lượng cao",
+    "image": "https://example.com/images/gaming-headsets.jpg",
+    "parentId": "GAMING_CATEGORY_ID",
+    "sortOrder": 1,
+    "metaTitle": "Gaming Headsets - Immersive Audio Experience",
+    "metaDescription": "High-quality gaming headsets with immersive audio",
+    "keywords": ["gaming", "headset", "audio", "gaming audio"]
+  },
+  {
+    "name": "Gaming Mice",
+    "description": "Chuột gaming chuyên nghiệp",
+    "image": "https://example.com/images/gaming-mice.jpg",
+    "parentId": "GAMING_CATEGORY_ID",
+    "sortOrder": 2,
+    "metaTitle": "Gaming Mice - Precision Gaming Control",
+    "metaDescription": "Professional gaming mice with precision control",
+    "keywords": ["gaming", "mouse", "gaming mouse", "precision"]
+  },
+  {
+    "name": "Gaming Keyboards",
+    "description": "Bàn phím gaming cơ học",
+    "image": "https://example.com/images/gaming-keyboards.jpg",
+    "parentId": "GAMING_CATEGORY_ID",
+    "sortOrder": 3,
+    "metaTitle": "Gaming Keyboards - Mechanical Gaming Keyboards",
+    "metaDescription": "Mechanical gaming keyboards for ultimate gaming experience",
+    "keywords": ["gaming", "keyboard", "mechanical", "gaming keyboard"]
+  }
+] 

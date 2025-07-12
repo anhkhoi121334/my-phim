@@ -1,0 +1,152 @@
+{
+  "name": "Laptop Gaming ASUS ROG Strix G15",
+  "description": "Laptop gaming hiệu năng cao với thiết kế đẹp mắt, phù hợp cho game thủ và người dùng cần hiệu năng mạnh mẽ. Sản phẩm được trang bị CPU Intel Core i7 thế hệ 12, GPU RTX 4060, màn hình 15.6 inch Full HD với tần số quét 144Hz.",
+  "shortDescription": "Laptop gaming mạnh mẽ với hiệu năng cao",
+  "brand": "ASUS",
+  "category": "Computers",
+  "subCategory": "Gaming Laptop",
+  "mainImage": "https://example.com/images/asus-rog-main.jpg",
+  "images": [
+    "https://example.com/images/asus-rog-1.jpg",
+    "https://example.com/images/asus-rog-2.jpg",
+    "https://example.com/images/asus-rog-3.jpg"
+  ],
+  "variants": [
+    {
+      "sku": "ASUS-ROG-G15-001",
+      "name": "16GB RAM, 512GB SSD, RTX 4060",
+      "price": 25000000,
+      "originalPrice": 28000000,
+      "stock": 15,
+      "images": [
+        "https://example.com/images/asus-rog-variant1-1.jpg",
+        "https://example.com/images/asus-rog-variant1-2.jpg"
+      ],
+      "attributes": {
+        "color": "Black",
+        "ram": "16GB",
+        "storage": "512GB SSD",
+        "gpu": "RTX 4060",
+        "display": "15.6 inch FHD 144Hz"
+      },
+      "weight": 2.3,
+      "dimensions": {
+        "length": 35.4,
+        "width": 24.2,
+        "height": 2.1
+      },
+      "isActive": true
+    },
+    {
+      "sku": "ASUS-ROG-G15-002",
+      "name": "32GB RAM, 1TB SSD, RTX 4070",
+      "price": 32000000,
+      "originalPrice": 35000000,
+      "stock": 8,
+      "images": [
+        "https://example.com/images/asus-rog-variant2-1.jpg",
+        "https://example.com/images/asus-rog-variant2-2.jpg"
+      ],
+      "attributes": {
+        "color": "Black",
+        "ram": "32GB",
+        "storage": "1TB SSD",
+        "gpu": "RTX 4070",
+        "display": "15.6 inch FHD 144Hz"
+      },
+      "weight": 2.3,
+      "dimensions": {
+        "length": 35.4,
+        "width": 24.2,
+        "height": 2.1
+      },
+      "isActive": true
+    }
+  ],
+  "specifications": [
+    {
+      "category": "CPU",
+      "name": "Processor",
+      "value": "Intel Core i7-12700H",
+      "unit": "GHz",
+      "isHighlighted": true
+    },
+    {
+      "category": "RAM",
+      "name": "Memory",
+      "value": "16GB",
+      "unit": "DDR4 3200MHz"
+    },
+    {
+      "category": "Storage",
+      "name": "SSD",
+      "value": "512GB",
+      "unit": "NVMe PCIe 4.0"
+    },
+    {
+      "category": "GPU",
+      "name": "Graphics",
+      "value": "NVIDIA GeForce RTX 4060",
+      "unit": "8GB GDDR6",
+      "isHighlighted": true
+    },
+    {
+      "category": "Display",
+      "name": "Screen",
+      "value": "15.6 inch",
+      "unit": "Full HD 144Hz"
+    },
+    {
+      "category": "Battery",
+      "name": "Battery Life",
+      "value": "6-8 hours",
+      "unit": "Normal usage"
+    },
+    {
+      "category": "Ports",
+      "name": "USB Ports",
+      "value": "3x USB 3.2, 1x USB-C",
+      "unit": ""
+    },
+    {
+      "category": "Connectivity",
+      "name": "Wi-Fi",
+      "value": "Wi-Fi 6E",
+      "unit": "802.11ax"
+    }
+  ],
+  "basePrice": 25000000,
+  "tags": [
+    "gaming",
+    "laptop",
+    "high-performance",
+    "asus",
+    "rog",
+    "rtx4060",
+    "intel-i7"
+  ],
+  "warranty": "24 tháng chính hãng",
+  "returnPolicy": "30 ngày đổi trả miễn phí",
+  "shippingInfo": {
+    "weight": 2.3,
+    "dimensions": {
+      "length": 35.4,
+      "width": 24.2,
+      "height": 2.1
+    },
+    "freeShipping": true,
+    "shippingCost": 0
+  },
+  "seo": {
+    "metaTitle": "Laptop Gaming ASUS ROG Strix G15 - Hiệu năng cao, giá tốt",
+    "metaDescription": "Laptop gaming ASUS ROG Strix G15 với CPU Intel Core i7, GPU RTX 4060, màn hình 144Hz. Phù hợp cho game thủ và công việc đồ họa.",
+    "keywords": [
+      "laptop gaming",
+      "asus rog",
+      "rtx 4060",
+      "intel i7",
+      "gaming laptop",
+      "hiệu năng cao"
+    ]
+  }
+} 

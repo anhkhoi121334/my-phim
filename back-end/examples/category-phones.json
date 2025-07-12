@@ -1,0 +1,19 @@
+{
+  "name": "Điện thoại di động",
+  "slug": "dien-thoai-di-dong",
+  "description": "Điện thoại di động chính hãng từ các thương hiệu nổi tiếng: Apple, Samsung, Xiaomi, OPPO...",
+  "image": "https://example.com/images/phones.jpg",
+  "parentId": null,
+  "sortOrder": 1,
+  "metaTitle": "Điện thoại di động chính hãng giá tốt | Shop",
+  "metaDescription": "Mua điện thoại di động chính hãng, giá tốt, đa dạng mẫu mã từ các thương hiệu nổi tiếng. Giao hàng toàn quốc, bảo hành chính hãng.",
+  "keywords": [
+    "điện thoại di động",
+    "smartphone",
+    "điện thoại thông minh",
+    "iphone",
+    "samsung galaxy",
+    "xiaomi",
+    "oppo"
+  ]
+} 

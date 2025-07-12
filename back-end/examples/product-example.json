@@ -1,0 +1,133 @@
+{
+  "name": "Laptop Gaming Asus ROG Strix G15",
+  "description": "Laptop Gaming Asus ROG Strix G15 là một trong những laptop gaming cao cấp với hiệu năng mạnh mẽ, thiết kế gaming độc đáo và hệ thống tản nhiệt hiệu quả.",
+  "shortDescription": "Laptop gaming cao cấp với CPU AMD Ryzen 9 và GPU NVIDIA RTX 3060",
+  "brand": "Asus",
+  "category": "65f2b91c52b5e27914a1c459",
+  "subCategory": "65f2b91c52b5e27914a1c45a",
+  "mainImage": "https://example.com/images/asus-rog-strix-g15-main.jpg",
+  "images": [
+    "https://example.com/images/asus-rog-strix-g15-1.jpg",
+    "https://example.com/images/asus-rog-strix-g15-2.jpg",
+    "https://example.com/images/asus-rog-strix-g15-3.jpg"
+  ],
+  "variants": [
+    {
+      "sku": "ROG-G15-R9-3060-16GB-1TB",
+      "name": "Ryzen 9 / RTX 3060 / 16GB / 1TB",
+      "price": 35990000,
+      "originalPrice": 39990000,
+      "stock": 10,
+      "images": [
+        "https://example.com/images/asus-rog-strix-g15-variant1.jpg"
+      ],
+      "attributes": {
+        "CPU": "AMD Ryzen 9 5900HX",
+        "RAM": "16GB DDR4",
+        "Storage": "1TB NVMe SSD",
+        "GPU": "NVIDIA GeForce RTX 3060 6GB",
+        "Color": "Eclipse Gray"
+      },
+      "weight": 2.3,
+      "dimensions": {
+        "length": 354,
+        "width": 259,
+        "height": 27
+      },
+      "isActive": true
+    },
+    {
+      "sku": "ROG-G15-R9-3060-32GB-2TB",
+      "name": "Ryzen 9 / RTX 3060 / 32GB / 2TB",
+      "price": 39990000,
+      "originalPrice": 42990000,
+      "stock": 5,
+      "images": [
+        "https://example.com/images/asus-rog-strix-g15-variant2.jpg"
+      ],
+      "attributes": {
+        "CPU": "AMD Ryzen 9 5900HX",
+        "RAM": "32GB DDR4",
+        "Storage": "2TB NVMe SSD",
+        "GPU": "NVIDIA GeForce RTX 3060 6GB",
+        "Color": "Eclipse Gray"
+      },
+      "weight": 2.3,
+      "dimensions": {
+        "length": 354,
+        "width": 259,
+        "height": 27
+      },
+      "isActive": true
+    }
+  ],
+  "specifications": [
+    {
+      "category": "CPU",
+      "name": "Processor",
+      "value": "AMD Ryzen 9 5900HX",
+      "unit": "GHz",
+      "isHighlighted": true
+    },
+    {
+      "category": "GPU",
+      "name": "Graphics Card",
+      "value": "NVIDIA GeForce RTX 3060",
+      "unit": "GB GDDR6",
+      "isHighlighted": true
+    },
+    {
+      "category": "Display",
+      "name": "Screen Size",
+      "value": "15.6 inch QHD",
+      "unit": "inch",
+      "isHighlighted": true
+    },
+    {
+      "category": "Memory",
+      "name": "RAM Type",
+      "value": "DDR4",
+      "isHighlighted": false
+    },
+    {
+      "category": "Storage",
+      "name": "SSD Type",
+      "value": "NVMe PCIe Gen 4",
+      "isHighlighted": false
+    }
+  ],
+  "basePrice": 35990000,
+  "tags": [
+    "gaming laptop",
+    "asus",
+    "rog",
+    "rtx 3060",
+    "ryzen 9"
+  ],
+  "warranty": "24 tháng chính hãng",
+  "returnPolicy": "Đổi trả miễn phí trong 15 ngày",
+  "shippingInfo": {
+    "weight": 3.5,
+    "dimensions": {
+      "length": 450,
+      "width": 320,
+      "height": 100
+    },
+    "freeShipping": true,
+    "shippingCost": 0
+  },
+  "seo": {
+    "metaTitle": "Laptop Gaming Asus ROG Strix G15 - AMD Ryzen 9, RTX 3060",
+    "metaDescription": "Mua laptop gaming Asus ROG Strix G15 chính hãng với CPU AMD Ryzen 9, GPU RTX 3060, màn hình 15.6 inch QHD. Giao hàng miễn phí toàn quốc.",
+    "keywords": [
+      "laptop gaming",
+      "asus rog",
+      "strix g15",
+      "ryzen 9",
+      "rtx 3060",
+      "gaming laptop cao cấp"
+    ]
+  },
+  "isActive": true,
+  "isFeatured": true
+} 

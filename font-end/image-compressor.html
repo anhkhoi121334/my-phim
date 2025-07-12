@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M10 4V10H4' stroke='%23007bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/><path d='M14 4V10H20' stroke='%23007bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/><path d='M10 20V14H4' stroke='%23007bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/><path d='M14 20V14H20' stroke='%23007bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --primary-hover: #0056b3;
+            --success-color: #28a745;
+            --success-hover: #218838;
+            --light-gray: #f8f9fa;
+            --gray: #6c757d;
+            --dark-gray: #343a40;
+            --border-color: #dee2e6;
+            --background-color: #f0f2f5;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 8px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 2rem 1rem;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 900px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--dark-gray);
+            margin-top: 0;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: .5rem;
+            font-weight: 500;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        input[type="file"],
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: .75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+        
+        input::placeholder {
+            color: #999;
+        }
+
+        button, a.button-style {
+            width: 100%;
+            padding: .85rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        button:hover, a.button-style:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+        }
+
+        button.secondary {
+            background-color: var(--gray);
+        }
+
+        button.secondary:hover {
+            background-color: var(--dark-gray);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        button:disabled {
+            background-color: #a0a0a0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .image-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 2.5rem;
+            gap: 2rem;
+        }
+
+        .image-box {
+            background-color: var(--light-gray);
+            border: 1px dashed var(--border-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+        
+        .image-box h3 {
+            margin-top: 0;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .info {
+            font-size: 0.9rem;
+            color: var(--gray);
+            word-break: break-word;
+        }
+
+        #downloadLink {
+            background-color: var(--success-color);
+        }
+        
+        #downloadLink:hover {
+            background-color: var(--success-hover);
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+        .download-all-container {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        #downloadAllBtn {
+            max-width: 300px;
+            margin: 0 auto;
+            background-color: var(--success-color);
+        }
+        
+        #downloadAllBtn:hover {
+            background-color: var(--success-hover);
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .image-preview {
+                grid-template-columns: 1fr;
+            }
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #outputFormat {
+            width: 100%;
+            padding: .75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-sizing: border-box;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+            outline: none;
+        }
+
+        #outputFormat:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        .control-group label[for="outputFormat"] {
+            margin-bottom: .5rem;
+            font-weight: 500;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-container">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 4V10H4" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 4V10H20" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 20V14H4" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 20V14H20" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <h1>Trình tối ưu hóa hình ảnh</h1>
+
+        <div class="control-group">
+            <label for="imageInput">Chọn ảnh (có thể chọn nhiều): <span id="fileInfo" style="font-weight: normal; color: #6c757d;"></span></label>
+            <input type="file" id="imageInput" accept="image/*" multiple>
+        </div>
+        
+        <div class="controls-grid">
+            <div class="control-group">
+                <label for="maxWidth">Chiều rộng tối đa (px):</label>
+                <input type="number" id="maxWidth" placeholder="Giữ nguyên kích thước">
+            </div>
+
+            <div class="control-group">
+                <label for="maxHeight">Chiều cao tối đa (px):</label>
+                <input type="number" id="maxHeight" placeholder="Giữ nguyên kích thước">
+            </div>
+
+            <div class="control-group">
+                <label for="quality">Chất lượng (0-1):</label>
+                <input type="number" id="quality" min="0" max="1" step="0.05" value="0.7" placeholder="Bỏ trống nếu đặt kích thước">
+            </div>
+
+            <div class="control-group">
+                <label for="targetSize">Kích thước mục tiêu (KB):</label>
+                <input type="number" id="targetSize" placeholder="Ưu tiên hơn chất lượng">
+            </div>
+            
+            <div class="control-group">
+                <label for="fileName">Tên file tải về (tùy chọn):</label>
+                <input type="text" id="fileName" placeholder="ví-dụ-tên-ảnh-đẹp">
+            </div>
+            
+            <div class="control-group">
+                <label for="outputFormat">Định dạng xuất ra:</label>
+                <select id="outputFormat">
+                    <option value="image/jpeg">JPEG (.jpg)</option>
+                    <option value="image/png">PNG (.png)</option>
+                    <option value="image/webp">WEBP (.webp)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="compressBtn" disabled>Nén ảnh</button>
+            <button type="button" id="resetBtn" class="button-style secondary">Xóa tất cả</button>
+        </div>
+
+        <div id="downloadAllContainer" class="download-all-container hidden">
+            <button id="downloadAllBtn">Tải tất cả ảnh về</button>
+        </div>
+
+        <div class="image-preview">
+            <!-- Results will be injected here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const maxWidthInput = document.getElementById('maxWidth');
+        const maxHeightInput = document.getElementById('maxHeight');
+        const qualityInput = document.getElementById('quality');
+        const targetSizeInput = document.getElementById('targetSize');
+        const fileNameInput = document.getElementById('fileName');
+        const compressBtn = document.getElementById('compressBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const fileInfo = document.getElementById('fileInfo');
+        const imagePreviewContainer = document.querySelector('.image-preview');
+        const downloadAllContainer = document.getElementById('downloadAllContainer');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+
+        // Array to store all compressed images data
+        let compressedImages = [];
+
+        function resetAll() {
+            imageInput.value = '';
+
+            // Reset all control inputs
+            maxWidthInput.value = '';
+            maxHeightInput.value = '';
+            qualityInput.value = '0.7';
+            qualityInput.disabled = false;
+            targetSizeInput.value = '';
+            fileNameInput.value = '';
+            fileInfo.textContent = '';
+
+            // Hide previews
+            imagePreviewContainer.innerHTML = '';
+            
+            // Hide download all button
+            downloadAllContainer.classList.add('hidden');
+            
+            // Clear compressed images array
+            compressedImages = [];
+
+            // Disable compress button
+            compressBtn.disabled = true;
+        }
+
+        resetBtn.addEventListener('click', resetAll);
+
+        imageInput.addEventListener('change', (e) => {
+            const files = e.target.files;
+            if (files.length > 0) {
+                compressBtn.disabled = false;
+                fileInfo.textContent = `${files.length} ảnh đã chọn`;
+                
+                // Use the first image to suggest dimensions
+                const firstFile = files[0];
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        maxWidthInput.value = img.width;
+                        maxHeightInput.value = img.height;
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(firstFile);
+            } else {
+                compressBtn.disabled = true;
+                fileInfo.textContent = '';
+            }
+            imagePreviewContainer.innerHTML = '';
+            downloadAllContainer.classList.add('hidden');
+            compressedImages = [];
+        });
+
+        function slugify(text) {
+            if (!text) return '';
+            text = text.toString().toLowerCase();
+
+            // Replace Vietnamese characters
+            text = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+            text = text.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+            text = text.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+            text = text.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+            text = text.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+            text = text.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+            text = text.replace(/đ/g, "d");
+
+            // Replace spaces and special characters with a hyphen
+            text = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ' ')
+                       .replace(/\s\s+/g, ' ');
+
+            // Replace spaces with a single hyphen
+            text = text.replace(/\s+/g, '-');
+            
+            // Trim hyphens from start and end
+            text = text.replace(/^-+|-+$/g, '');
+
+            return text;
+        }
+
+        targetSizeInput.addEventListener('input', () => {
+            if (targetSizeInput.value) {
+                qualityInput.disabled = true;
+            } else {
+                qualityInput.disabled = false;
+            }
+        });
+
+        fileNameInput.addEventListener('blur', () => {
+            fileNameInput.value = slugify(fileNameInput.value);
+        });
+
+        function applySharpenFilter(ctx, width, height) {
+            // Ma trận sharpen đơn giản
+            const weights = [ 0, -1,  0,
+                             -1,  5, -1,
+                              0, -1,  0 ];
+            const side = Math.round(Math.sqrt(weights.length));
+            const halfSide = Math.floor(side / 2);
+
+            const srcData = ctx.getImageData(0, 0, width, height);
+            const dstData = ctx.createImageData(width, height);
+
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    let r = 0, g = 0, b = 0;
+                    for (let cy = 0; cy < side; cy++) {
+                        for (let cx = 0; cx < side; cx++) {
+                            const scy = y + cy - halfSide;
+                            const scx = x + cx - halfSide;
+                            if (scy >= 0 && scy < height && scx >= 0 && scx < width) {
+                                const srcOffset = (scy * width + scx) * 4;
+                                const wt = weights[cy * side + cx];
+                                r += srcData.data[srcOffset] * wt;
+                                g += srcData.data[srcOffset + 1] * wt;
+                                b += srcData.data[srcOffset + 2] * wt;
+                            }
+                        }
+                    }
+                    const dstOffset = (y * width + x) * 4;
+                    dstData.data[dstOffset] = Math.min(Math.max(r, 0), 255);
+                    dstData.data[dstOffset + 1] = Math.min(Math.max(g, 0), 255);
+                    dstData.data[dstOffset + 2] = Math.min(Math.max(b, 0), 255);
+                    dstData.data[dstOffset + 3] = srcData.data[dstOffset + 3];
+                }
+            }
+            ctx.putImageData(dstData, 0, 0);
+        }
+
+        function removeExtension(filename) {
+            return filename.replace(/\.[^/.]+$/, "");
+        }
+
+        function processImage(file, settings, index, totalFiles) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    let { width, height } = img;
+
+                    if (!isNaN(settings.maxWidth) && isNaN(settings.maxHeight)) {
+                        height = Math.round(img.height * (settings.maxWidth / img.width));
+                        width = settings.maxWidth;
+                    } else if (isNaN(settings.maxWidth) && !isNaN(settings.maxHeight)) {
+                        width = Math.round(img.width * (settings.maxHeight / img.height));
+                        height = settings.maxHeight;
+                    } else if (!isNaN(settings.maxWidth) && !isNaN(settings.maxHeight)) {
+                        width = settings.maxWidth;
+                        height = settings.maxHeight;
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    // Áp dụng sharpen filter sau khi vẽ ảnh
+                    applySharpenFilter(ctx, width, height);
+
+                    // Lấy định dạng xuất ra từ select
+                    const outputFormatSelect = document.getElementById('outputFormat');
+                    let outputMimeType = outputFormatSelect.value || file.type;
+
+                    let compressedDataUrl;
+                    if (settings.targetSizeKB && !isNaN(settings.targetSizeKB)) {
+                        outputMimeType = outputFormatSelect.value || 'image/jpeg';
+                        const targetSizeInBytes = settings.targetSizeKB * 1024;
+                        let minQuality = 0, maxQuality = 1, bestDataUrl = '';
+                        let dataUrlAttempt = canvas.toDataURL(outputMimeType, maxQuality);
+                        if (atob(dataUrlAttempt.split(',')[1]).length <= targetSizeInBytes) {
+                            bestDataUrl = dataUrlAttempt;
+                        } else {
+                            for (let i = 0; i < 10; i++) {
+                                let midQuality = (minQuality + maxQuality) / 2;
+                                dataUrlAttempt = canvas.toDataURL(outputMimeType, midQuality);
+                                if (atob(dataUrlAttempt.split(',')[1]).length > targetSizeInBytes) {
+                                    maxQuality = midQuality;
+                                } else {
+                                    minQuality = midQuality;
+                                    bestDataUrl = dataUrlAttempt;
+                                }
+                            }
+                        }
+                        compressedDataUrl = bestDataUrl || canvas.toDataURL(outputMimeType, minQuality);
+                    } else {
+                        compressedDataUrl = canvas.toDataURL(outputMimeType, settings.quality);
+                    }
+                    
+                    const compressedSize = atob(compressedDataUrl.split(',')[1]).length;
+                    const originalSize = file.size;
+                    const reduction = ((originalSize - compressedSize) / originalSize * 100).toFixed(2);
+                    const fileExtension = outputMimeType.split('/')[1];
+                    const finalExtension = fileExtension === 'jpeg' ? 'jpg' : fileExtension;
+                    
+                    // Sửa logic đặt tên file để không bị cộng đuôi hai lần
+                    let baseFileName = settings.fileName ? removeExtension(settings.fileName) : removeExtension(file.name);
+                    if (totalFiles > 1) {
+                        baseFileName = baseFileName ? `${baseFileName}-${index + 1}` : `compressed-image-${index+1}`;
+                    }
+                    const downloadName = `${baseFileName}.${finalExtension}`;
+
+                    // Add to compressed images array
+                    compressedImages.push({
+                        dataUrl: compressedDataUrl,
+                        fileName: downloadName
+                    });
+                    
+                    // Create and append result elements
+                    const originalBox = document.createElement('div');
+                    originalBox.className = 'image-box';
+                    originalBox.innerHTML = `<h3>Ảnh gốc</h3><img src="${event.target.result}" alt="Original Image"><div class="info">${file.name} - ${(originalSize / 1024).toFixed(2)} KB</div>`;
+
+                    const compressedBox = document.createElement('div');
+                    compressedBox.className = 'image-box';
+                    compressedBox.innerHTML = `<h3>Ảnh đã nén</h3><img src="${compressedDataUrl}" alt="Compressed Image"><div class="info">Kích thước: ${(compressedSize / 1024).toFixed(2)} KB (${reduction > 0 ? '-' : '+'}${Math.abs(reduction)}% ${reduction > 0 ? 'giảm' : 'tăng'})</div><a class="button-style" href="${compressedDataUrl}" download="${downloadName}" style="margin-top: 1rem;">Tải ảnh về</a>`;
+                    
+                    imagePreviewContainer.appendChild(originalBox);
+                    imagePreviewContainer.appendChild(compressedBox);
+                    
+                    // Show download all button if there are multiple images
+                    if (totalFiles > 1) {
+                        downloadAllContainer.classList.remove('hidden');
+                    }
+                };
+            };
+            reader.readAsDataURL(file);
+        }
+
+        compressBtn.addEventListener('click', () => {
+            const files = imageInput.files;
+            if (!files || files.length === 0) return;
+
+            imagePreviewContainer.innerHTML = '';
+            compressedImages = [];
+            
+            const settings = {
+                maxWidth: parseInt(maxWidthInput.value, 10),
+                maxHeight: parseInt(maxHeightInput.value, 10),
+                quality: parseFloat(qualityInput.value),
+                targetSizeKB: parseFloat(targetSizeInput.value),
+                fileName: fileNameInput.value
+            };
+
+            for (let i = 0; i < files.length; i++) {
+                processImage(files[i], settings, i, files.length);
+            }
+        });
+        
+        // Function to download all images in a zip file
+        downloadAllBtn.addEventListener('click', () => {
+            if (compressedImages.length === 0) return;
+            
+            // If JSZip is not available, dynamically load it
+            if (typeof JSZip === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+                script.onload = createAndDownloadZip;
+                document.head.appendChild(script);
+            } else {
+                createAndDownloadZip();
+            }
+            
+            function createAndDownloadZip() {
+                const zip = new JSZip();
+                
+                // Add all images to the zip
+                compressedImages.forEach(img => {
+                    // Convert data URL to binary
+                    const binary = atob(img.dataUrl.split(',')[1]);
+                    const array = [];
+                    for (let i = 0; i < binary.length; i++) {
+                        array.push(binary.charCodeAt(i));
+                    }
+                    const blob = new Uint8Array(array);
+                    
+                    // Add file to zip
+                    zip.file(img.fileName, blob);
+                });
+                
+                // Generate the zip file
+                zip.generateAsync({type: 'blob'}).then(function(content) {
+                    // Create a download link
+                    const zipName = fileNameInput.value ? `${fileNameInput.value}.zip` : 'compressed-images.zip';
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = URL.createObjectURL(content);
+                    downloadLink.download = zipName;
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

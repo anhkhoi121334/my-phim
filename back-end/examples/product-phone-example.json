@@ -1,0 +1,167 @@
+{
+  "name": "iPhone 15 Pro Max",
+  "description": "iPhone 15 Pro Max là chiếc điện thoại cao cấp nhất của Apple với thiết kế khung titanium sang trọng, chip A17 Pro mạnh mẽ, camera chuyên nghiệp 48MP và màn hình Super Retina XDR OLED 6.7 inch sắc nét.",
+  "shortDescription": "iPhone 15 Pro Max - Chip A17 Pro, Camera 48MP, Khung Titanium",
+  "brand": "Apple",
+  "category": "6852663228f84810fa0b8d46",
+  "subCategory": "685268c74b8c4c291e4c80ba",
+  "mainImage": "https://example.com/images/iphone-15-pro-max-main.jpg",
+  "images": [
+    "https://example.com/images/iphone-15-pro-max-1.jpg",
+    "https://example.com/images/iphone-15-pro-max-2.jpg",
+    "https://example.com/images/iphone-15-pro-max-3.jpg",
+    "https://example.com/images/iphone-15-pro-max-4.jpg"
+  ],
+  "variants": [
+    {
+      "sku": "IP15PM-256GB-NATURAL",
+      "name": "iPhone 15 Pro Max 256GB - Natural Titanium",
+      "price": 34990000,
+      "originalPrice": 36990000,
+      "stock": 15,
+      "images": [
+        "https://example.com/images/iphone-15-pro-max-natural.jpg"
+      ],
+      "attributes": {
+        "Màu sắc": "Natural Titanium",
+        "Bộ nhớ": "256GB",
+        "RAM": "8GB",
+        "Chip": "A17 Pro"
+      },
+      "weight": 0.221,
+      "dimensions": {
+        "length": 159.9,
+        "width": 76.7,
+        "height": 8.25
+      },
+      "isActive": true
+    },
+    {
+      "sku": "IP15PM-512GB-BLACK",
+      "name": "iPhone 15 Pro Max 512GB - Black Titanium",
+      "price": 39990000,
+      "originalPrice": 41990000,
+      "stock": 10,
+      "images": [
+        "https://example.com/images/iphone-15-pro-max-black.jpg"
+      ],
+      "attributes": {
+        "Màu sắc": "Black Titanium",
+        "Bộ nhớ": "512GB",
+        "RAM": "8GB",
+        "Chip": "A17 Pro"
+      },
+      "weight": 0.221,
+      "dimensions": {
+        "length": 159.9,
+        "width": 76.7,
+        "height": 8.25
+      },
+      "isActive": true
+    }
+  ],
+  "specifications": [
+    {
+      "category": "Màn hình",
+      "name": "Công nghệ màn hình",
+      "value": "Super Retina XDR OLED",
+      "isHighlighted": true
+    },
+    {
+      "category": "Màn hình",
+      "name": "Kích thước màn hình",
+      "value": "6.7",
+      "unit": "inch",
+      "isHighlighted": true
+    },
+    {
+      "category": "Màn hình",
+      "name": "Độ phân giải",
+      "value": "2796 x 1290",
+      "unit": "pixels"
+    },
+    {
+      "category": "Camera",
+      "name": "Camera chính",
+      "value": "48",
+      "unit": "MP",
+      "isHighlighted": true
+    },
+    {
+      "category": "Camera",
+      "name": "Camera góc siêu rộng",
+      "value": "12",
+      "unit": "MP"
+    },
+    {
+      "category": "Camera",
+      "name": "Camera Tele",
+      "value": "12",
+      "unit": "MP"
+    },
+    {
+      "category": "Camera",
+      "name": "Camera trước",
+      "value": "12",
+      "unit": "MP"
+    },
+    {
+      "category": "Hiệu năng",
+      "name": "Chip",
+      "value": "A17 Pro",
+      "isHighlighted": true
+    },
+    {
+      "category": "Hiệu năng",
+      "name": "RAM",
+      "value": "8",
+      "unit": "GB"
+    },
+    {
+      "category": "Pin & Sạc",
+      "name": "Dung lượng pin",
+      "value": "4422",
+      "unit": "mAh"
+    },
+    {
+      "category": "Pin & Sạc",
+      "name": "Công nghệ sạc",
+      "value": "Sạc nhanh 20W, sạc không dây MagSafe 15W"
+    }
+  ],
+  "basePrice": 34990000,
+  "tags": [
+    "iphone",
+    "iphone 15",
+    "iphone 15 pro max",
+    "apple",
+    "điện thoại cao cấp",
+    "smartphone"
+  ],
+  "warranty": "12 tháng chính hãng",
+  "returnPolicy": "Đổi trả miễn phí trong 15 ngày đầu tiên",
+  "shippingInfo": {
+    "weight": 0.5,
+    "dimensions": {
+      "length": 180,
+      "width": 100,
+      "height": 50
+    },
+    "freeShipping": true,
+    "shippingCost": 0
+  },
+  "seo": {
+    "metaTitle": "iPhone 15 Pro Max Chính Hãng - Giá Tốt, Trả Góp 0%",
+    "metaDescription": "Mua iPhone 15 Pro Max chính hãng VN/A - Màn hình 6.7 inch, chip A17 Pro, camera 48MP, khung titanium. Trả góp 0%, thu cũ đổi mới, giao hàng miễn phí.",
+    "keywords": [
+      "iphone 15 pro max",
+      "iphone 15",
+      "điện thoại apple",
+      "iphone chính hãng",
+      "iphone khung titanium",
+      "iphone cao cấp"
+    ]
+  },
+  "isActive": true,
+  "isFeatured": true
+} 

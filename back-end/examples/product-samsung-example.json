@@ -1,0 +1,180 @@
+{
+  "name": "Samsung Galaxy S24 Ultra",
+  "description": "Samsung Galaxy S24 Ultra là flagship cao cấp nhất của Samsung với bút S-Pen tích hợp, màn hình Dynamic AMOLED 2X 6.8 inch, chip Snapdragon 8 Gen 3, camera 200MP và khung titanium bền bỉ.",
+  "shortDescription": "Galaxy S24 Ultra - Snapdragon 8 Gen 3, Camera 200MP, S-Pen",
+  "brand": "Samsung",
+  "category": "6852663228f84810fa0b8d46",
+  "subCategory": "685268c74b8c4c291e4c80ba",
+  "mainImage": "https://example.com/images/samsung-s24-ultra-main.jpg",
+  "images": [
+    "https://example.com/images/samsung-s24-ultra-1.jpg",
+    "https://example.com/images/samsung-s24-ultra-2.jpg",
+    "https://example.com/images/samsung-s24-ultra-3.jpg",
+    "https://example.com/images/samsung-s24-ultra-4.jpg"
+  ],
+  "variants": [
+    {
+      "sku": "SS-S24U-256GB-TITANIUM",
+      "name": "Galaxy S24 Ultra 256GB - Titanium Gray",
+      "price": 33990000,
+      "originalPrice": 35990000,
+      "stock": 20,
+      "images": [
+        "https://example.com/images/samsung-s24-ultra-gray.jpg"
+      ],
+      "attributes": {
+        "Màu sắc": "Titanium Gray",
+        "Bộ nhớ": "256GB",
+        "RAM": "12GB",
+        "Chip": "Snapdragon 8 Gen 3"
+      },
+      "weight": 0.233,
+      "dimensions": {
+        "length": 162.3,
+        "width": 79,
+        "height": 8.6
+      },
+      "isActive": true
+    },
+    {
+      "sku": "SS-S24U-512GB-BLACK",
+      "name": "Galaxy S24 Ultra 512GB - Titanium Black",
+      "price": 37990000,
+      "originalPrice": 39990000,
+      "stock": 15,
+      "images": [
+        "https://example.com/images/samsung-s24-ultra-black.jpg"
+      ],
+      "attributes": {
+        "Màu sắc": "Titanium Black",
+        "Bộ nhớ": "512GB",
+        "RAM": "12GB",
+        "Chip": "Snapdragon 8 Gen 3"
+      },
+      "weight": 0.233,
+      "dimensions": {
+        "length": 162.3,
+        "width": 79,
+        "height": 8.6
+      },
+      "isActive": true
+    }
+  ],
+  "specifications": [
+    {
+      "category": "Màn hình",
+      "name": "Công nghệ màn hình",
+      "value": "Dynamic AMOLED 2X",
+      "isHighlighted": true
+    },
+    {
+      "category": "Màn hình",
+      "name": "Kích thước màn hình",
+      "value": "6.8",
+      "unit": "inch",
+      "isHighlighted": true
+    },
+    {
+      "category": "Màn hình",
+      "name": "Độ phân giải",
+      "value": "3088 x 1440",
+      "unit": "pixels"
+    },
+    {
+      "category": "Camera",
+      "name": "Camera chính",
+      "value": "200",
+      "unit": "MP",
+      "isHighlighted": true
+    },
+    {
+      "category": "Camera",
+      "name": "Camera góc siêu rộng",
+      "value": "12",
+      "unit": "MP"
+    },
+    {
+      "category": "Camera",
+      "name": "Camera Tele 1",
+      "value": "50",
+      "unit": "MP"
+    },
+    {
+      "category": "Camera",
+      "name": "Camera Tele 2",
+      "value": "10",
+      "unit": "MP"
+    },
+    {
+      "category": "Camera",
+      "name": "Camera trước",
+      "value": "12",
+      "unit": "MP"
+    },
+    {
+      "category": "Hiệu năng",
+      "name": "Chip",
+      "value": "Snapdragon 8 Gen 3",
+      "isHighlighted": true
+    },
+    {
+      "category": "Hiệu năng",
+      "name": "RAM",
+      "value": "12",
+      "unit": "GB"
+    },
+    {
+      "category": "Pin & Sạc",
+      "name": "Dung lượng pin",
+      "value": "5000",
+      "unit": "mAh"
+    },
+    {
+      "category": "Pin & Sạc",
+      "name": "Công nghệ sạc",
+      "value": "Sạc nhanh 45W, sạc không dây 15W"
+    },
+    {
+      "category": "Tính năng đặc biệt",
+      "name": "Bút S-Pen",
+      "value": "Có, tích hợp trong thân máy",
+      "isHighlighted": true
+    }
+  ],
+  "basePrice": 33990000,
+  "tags": [
+    "samsung",
+    "galaxy s24",
+    "s24 ultra",
+    "galaxy s24 ultra",
+    "điện thoại samsung",
+    "điện thoại cao cấp",
+    "smartphone"
+  ],
+  "warranty": "12 tháng chính hãng",
+  "returnPolicy": "Đổi trả miễn phí trong 15 ngày đầu tiên",
+  "shippingInfo": {
+    "weight": 0.5,
+    "dimensions": {
+      "length": 180,
+      "width": 100,
+      "height": 50
+    },
+    "freeShipping": true,
+    "shippingCost": 0
+  },
+  "seo": {
+    "metaTitle": "Samsung Galaxy S24 Ultra Chính Hãng - Giá Tốt, Trả Góp 0%",
+    "metaDescription": "Mua Samsung Galaxy S24 Ultra chính hãng - Màn hình 6.8 inch, Snapdragon 8 Gen 3, camera 200MP, bút S-Pen. Trả góp 0%, thu cũ đổi mới, giao hàng miễn phí.",
+    "keywords": [
+      "samsung galaxy s24 ultra",
+      "galaxy s24 ultra",
+      "s24 ultra",
+      "điện thoại samsung",
+      "samsung flagship",
+      "điện thoại cao cấp samsung"
+    ]
+  },
+  "isActive": true,
+  "isFeatured": true
+} 
